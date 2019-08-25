@@ -1,9 +1,13 @@
 require 'pry'
 require_relative '../lib/concerns/memorable'
-require_relative '../lib/song.rb'
+
+  
+  
 class Artist
   attr_accessor :name
   attr_reader :songs
+  
+extend Memorable::ClassMethods
 
   @@artists = []
 
@@ -40,5 +44,5 @@ class Artist
   def to_param
     name.downcase.gsub(' ', '-')
   end
-  extend Memorable::ClassMethods
+  
 end
